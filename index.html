@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Employee CRUD</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="employee">
+    <div>
+        <form>
+            <label>First Name: </label>
+            <input type="text" name="firstName" ng-model="person.firstName" />
+            <br /><br />
+
+            <label>Surname: </label>
+            <input type="text" name="lastName" ng-model="person.lastName" />
+            <br /><br />
+
+            <label>Date of Birth: </label>
+            <input type="text" name="birthDate" ng-model="person.birthDate" />
+            <br /><br />
+
+            <input type="button" value="Save" ng-click="savePerson" />
+
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Surname</th>
+                    <th>Date of Birth</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in persons">
+                    <td>{{ person.firstName }}</td>
+                    <td>{{ person.lastName }}</td>
+                    <td>{{ person.birthDate }}</td>
+                    <td>
+                        <a href="#" ng-click="editPerson(person.id)">Edit</a>
+                        <a href="#" ng-click="deletePerson(person.id)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="./script/angular.min.js"></script>
+    <script type="text/javascript" src="./script/script.js"></script>
+</body>
+</html>
